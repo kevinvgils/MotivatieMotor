@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestionManager : MonoBehaviour
@@ -36,6 +37,10 @@ public class QuestionManager : MonoBehaviour
             Debug.Log(answer);
         }
         animator.SetBool("QisOpen", false);
-        if(dialogueTrigger) dialogueTrigger.TriggerDialogue();
+        if(dialogueTrigger) { 
+            dialogueTrigger.TriggerDialogue();
+        } else {
+            SceneManager.LoadScene("MainMenu");
+        };
     }
 }
