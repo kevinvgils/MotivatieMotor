@@ -40,6 +40,7 @@ public class QuestionManager : MonoBehaviour
         if(dialogueTrigger) { 
             dialogueTrigger.TriggerDialogue();
         } else {
+            ProgressManager.SaveLevelAnswers(SceneManager.GetActiveScene().name, givenAnswers.ToArray());
             SceneManager.LoadScene("MainMenu");
         };
     }
