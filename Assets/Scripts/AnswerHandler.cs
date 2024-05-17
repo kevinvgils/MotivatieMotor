@@ -20,14 +20,11 @@ public class AnswerHandler : MonoBehaviour
     }
 
     // This method is called when the button is clicked
-    public void OnButtonClick()
+    public void OnButtonClick(int index)
     {
         if (buttonText != null)
         {
-            // Retrieve the text value of this button
-            string textValue = buttonText.text;
-            Debug.Log("Button Text: " + textValue);
-            questionManager.EndQuestion(textValue);
+            questionManager.EndQuestion(index);
 
         }
         else

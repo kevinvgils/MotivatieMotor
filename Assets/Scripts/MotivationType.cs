@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class LevelAnswers
+public enum MotivationType
 {
-    public string levelName;
-    public Answer[] answers;
+    Mot1,
+    Mot2,
+    Mot3,
+    Mot4,
+    Mot5
 }

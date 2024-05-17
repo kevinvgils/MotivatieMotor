@@ -6,7 +6,7 @@ using UnityEngine;
 public class ProgressManager : MonoBehaviour
 {
         // Method to save user answers for a level
-    public static void SaveLevelAnswers(string levelName, string[] answers)
+    public static void SaveLevelAnswers(string levelName, Answer[] answers)
     {
         LevelAnswers levelData = new()
         {
@@ -21,7 +21,7 @@ public class ProgressManager : MonoBehaviour
     }
 
     // Method to load user answers for a level
-    public static string[] LoadLevelAnswers(string levelName)
+    public static Answer[] LoadLevelAnswers(string levelName)
     {
         string filePath = Application.persistentDataPath + "/" + levelName + ".json";
         if (File.Exists(filePath))
