@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class LevelAnswers
+public class AnswerEntry
 {
-    public string levelName;
-    public List<AnswerEntry> answers;
+    public string key;
+    public Answer value;
 }
