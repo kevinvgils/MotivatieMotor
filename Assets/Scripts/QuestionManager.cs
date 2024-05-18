@@ -19,18 +19,17 @@ public class QuestionManager : MonoBehaviour
     public Sprite[] coinImages;
     public Slider timerSlider; // Reference to the Slider component for the timer bar
     public Button[] answerButtons;
-    private DialogueTrigger dialogueTrigger;
     private Question currentQuestion;
     public float timeLimit = 30f;  // Set your desired time limit here
     private Coroutine timerCoroutine;
-
+    private int nextStudent;
     public Animator animator;
 
-    public void StartQuestion(Question question) {
+    public void StartQuestion(Question question, int nextStudentI) {
+        nextStudent = nextStudentI;
         animator.SetBool("QisOpen", true);
 
         questionText.text = question.question;
-        dialogueTrigger = question.nextDialogue;
 
         currentQuestion = question;
         int i = 0;
@@ -74,9 +73,9 @@ public class QuestionManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         animator.SetBool("ShowPoints", false);
-        if (dialogueTrigger)
+        if (nextStudent != -1)
         {
-            dialogueTrigger.TriggerDialogue();
+            FindObjectOfType<StudentHandRaiseHandler>().RaiseHand(nextStudent);
         }
         else
         {
@@ -104,26 +103,35 @@ public class QuestionManager : MonoBehaviour
         }
 
         // Time's up! Handle the timeout scenario
-        HandleTimeout();
+        StartCoroutine(HandleTimeout());
     }
 
-    private void HandleTimeout() {
+    private IEnumerator HandleTimeout() {
+        pointText.text = "0";
+        coinImage.sprite = coinImages[5];
         // For example, you can end the question with a default answer or just trigger the dialogue
 
         // Assuming you want to end the question with no answer selected
+        animator.SetBool("ShowPoints", true);
+
+        yield return new WaitForSeconds(4);
+
+        animator.SetBool("ShowPoints", false);
+
+        yield return new WaitForSeconds(2);
+
         animator.SetBool("QisOpen", false);
 
         // Optionally, add a default answer if needed
         // givenAnswers.Add(new Answer { answer = "No answer", isCorrect = false });
 
         // Or just proceed to the next dialogue or scene
-        if (dialogueTrigger) {
-            dialogueTrigger.TriggerDialogue();
+        if (nextStudent != -1)
+        {
+            FindObjectOfType<StudentHandRaiseHandler>().RaiseHand(nextStudent);
         } else {
             ProgressManager.SaveLevelAnswers(SceneManager.GetActiveScene().name, givenAnswers);
             SceneManager.LoadScene("MainMenu");
         }
     }
-
-
 }
