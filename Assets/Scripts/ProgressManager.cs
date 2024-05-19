@@ -35,6 +35,10 @@ public class ProgressManager : MonoBehaviour
         {
             string jsonData = File.ReadAllText(filePath);
             LevelAnswers levelData = JsonUtility.FromJson<LevelAnswers>(jsonData);
+            Debug.Log(levelData.levelName);
+            Debug.Log(levelData.answers);
+                        Debug.Log(levelData.answers.Count);
+
             return levelData;
         }
         else
@@ -42,5 +46,11 @@ public class ProgressManager : MonoBehaviour
             Debug.LogWarning("No saved answers found for level: " + levelName);
             return null;
         }
+    }
+
+    public static bool IsLevelCompleted(string levelName)
+    {
+        LevelAnswers levelAnswers = LoadLevelAnswers(levelName);
+        return levelAnswers != null && levelAnswers.answers != null && levelAnswers.answers.Count > 0;
     }
 }

@@ -18,19 +18,19 @@ public class ScoreManager : MonoBehaviour
 
     public void AddToScore(Answer givenAnswer) {
         if(givenAnswer.motType == MotivationType.Mot1) {
-            motType1 =+ givenAnswer.coinAmount;
+            motType1 += givenAnswer.coinAmount;
             textMot1.text = motType1.ToString(); 
         } else if(givenAnswer.motType == MotivationType.Mot2) {
-            motType2 =+ givenAnswer.coinAmount;
+            motType2 += givenAnswer.coinAmount;
             textMot2.text = motType2.ToString(); 
         } else if(givenAnswer.motType == MotivationType.Mot3) {
-            motType3 =+ givenAnswer.coinAmount;
+            motType3 += givenAnswer.coinAmount;
             textMot3.text = motType3.ToString(); 
         } else if(givenAnswer.motType == MotivationType.Mot4) {
-            motType4 =+ givenAnswer.coinAmount;
+            motType4 += givenAnswer.coinAmount;
             textMot4.text = motType4.ToString(); 
         } else if(givenAnswer.motType == MotivationType.Mot5) {
-            motType5 =+ givenAnswer.coinAmount;
+            motType5 += givenAnswer.coinAmount;
             textMot5.text = motType5.ToString(); 
         }
     }
