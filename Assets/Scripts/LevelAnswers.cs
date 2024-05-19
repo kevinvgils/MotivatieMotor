@@ -6,5 +6,7 @@ using UnityEngine;
 public class LevelAnswers
 {
     public string levelName;
+    public List<PointEntry> pointTotal;
+
     public List<AnswerEntry> answers;
 }

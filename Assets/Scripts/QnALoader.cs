@@ -9,6 +9,7 @@ public class QnALoader : MonoBehaviour
     public GameObject scrollViewContent;  // Reference to the Content object of the ScrollView
     public GameObject itemPrefab;         // Reference to the prefab that will be instantiated
     public TMP_Text levelName;
+    public TMP_Text[] coinsText;
 
     void Start()
     {
@@ -17,6 +18,11 @@ public class QnALoader : MonoBehaviour
         AddItemsToScrollView(answers);
 
         levelName.text = answers.levelName;
+        int i = 0;
+        foreach(TMP_Text coinText in coinsText) {
+            coinText.text = answers.pointTotal[i].value.ToString();
+            i++;
+        }
     }
 
     void AddItemsToScrollView(LevelAnswers levelAnswers)

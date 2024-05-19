@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public enum MotivationType
 {
-    Mot1,
-    Mot2,
-    Mot3,
-    Mot4,
-    Mot5
+    Mot1 = 0,
+    Mot2 = 1,
+    Mot3 = 2,
+    Mot4 = 3,
+    Mot5 = 4
 }

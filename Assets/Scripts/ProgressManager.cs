@@ -9,14 +9,38 @@ public class ProgressManager : MonoBehaviour
     public static void SaveLevelAnswers(string levelName, Dictionary<string, Answer> answers)
     {
         List<AnswerEntry> answerEntries = new();
+        Dictionary<int, int> pointSums = new();
+        pointSums.Add(0, 0);
+        pointSums.Add(1, 0);
+        pointSums.Add(2, 0);
+        pointSums.Add(3, 0);
+        pointSums.Add(4, 0);
+
+
+        // Populate answerEntries and calculate points
         foreach (var kvp in answers)
         {
             answerEntries.Add(new AnswerEntry { key = kvp.Key, value = kvp.Value });
+
+            // Aggregate points by motivation type
+            if (!pointSums.ContainsKey((int)kvp.Value.motType))
+            {
+                pointSums[(int)kvp.Value.motType] = 0;
+            }
+            pointSums[(int)kvp.Value.motType] += kvp.Value.coinAmount;
+        }
+
+        // Convert pointSums dictionary to pointTotal list
+        List<PointEntry> pointTotal = new();
+        foreach (var kvp in pointSums)
+        {
+            pointTotal.Add(new PointEntry { key = (MotivationType)kvp.Key, value = kvp.Value });
         }
 
         LevelAnswers levelData = new()
         {
             levelName = levelName,
+            pointTotal =pointTotal,
             answers = answerEntries
         };
 
