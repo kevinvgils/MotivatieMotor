@@ -10,6 +10,7 @@ public class QnALoader : MonoBehaviour
     public GameObject itemPrefab;         // Reference to the prefab that will be instantiated
     public TMP_Text levelName;
     public TMP_Text[] coinsText;
+    public Sprite[] coinImages;
 
     void Start()
     {
@@ -40,8 +41,16 @@ public class QnALoader : MonoBehaviour
 
             TMP_Text[] texts = newItem.GetComponentsInChildren<TMP_Text>();
             Debug.Log(texts.Length);
+            Image coin = newItem.GetComponentInChildren<Image>();
+            coin.sprite = coinImages[(int)answer.value.motType];
+
             texts[0].text = answer.key;
             texts[1].text = answer.value.answer;
+            texts[2].text = answer.value.coinAmount.ToString();
+        }
+
+        foreach(var point in levelAnswers.pointTotal) {
+
         }
     }
 }

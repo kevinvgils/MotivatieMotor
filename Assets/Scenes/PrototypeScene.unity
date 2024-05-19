@@ -4586,13 +4586,13 @@ MonoBehaviour:
     possibleAnswers:
     - answer: Thijs op z'n muil slaan
       motType: 2
-      coinAmount: 5
+      coinAmount: 20
     - answer: Bas de schuld geven
-      motType: 2
-      coinAmount: 5
+      motType: 4
+      coinAmount: 15
     - answer: Thijs uitlachen
       motType: 0
-      coinAmount: 1
+      coinAmount: 30
     - answer: Thijs negeren
       motType: 3
       coinAmount: -20
@@ -6316,17 +6316,17 @@ MonoBehaviour:
     question: Wat doe je op thijs zijn uitspraak?
     possibleAnswers:
     - answer: Uitlachen om zn uitspraak
-      motType: 0
-      coinAmount: 0
+      motType: 1
+      coinAmount: 15
     - answer: Test
       motType: 0
-      coinAmount: 0
+      coinAmount: 20
     - answer: Lol
-      motType: 0
-      coinAmount: 0
+      motType: 2
+      coinAmount: 25
     - answer: Hallo
-      motType: 0
-      coinAmount: 0
+      motType: 4
+      coinAmount: 10
     nextDialogue: {fileID: 0}
   nextStudent: -1
 --- !u!4 &2080794400

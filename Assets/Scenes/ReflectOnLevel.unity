@@ -1342,6 +1342,12 @@ MonoBehaviour:
   - {fileID: 1089896043}
   - {fileID: 90650868}
   - {fileID: 21896367}
+  coinImages:
+  - {fileID: 21300000, guid: 5521cfd80ef3fe64e954996afb929eaa, type: 3}
+  - {fileID: 21300000, guid: 0818ab6b80e4a7344b02e327ed6a7ce4, type: 3}
+  - {fileID: 21300000, guid: 045e2fcda729e914b8b8b1d281fb447d, type: 3}
+  - {fileID: 21300000, guid: db9ba700a025ba148bbfab67df444c62, type: 3}
+  - {fileID: 21300000, guid: 93f04bf156e7ce04293f0e3cd834f1e5, type: 3}
 --- !u!4 &1138272158
 Transform:
   m_ObjectHideFlags: 0
