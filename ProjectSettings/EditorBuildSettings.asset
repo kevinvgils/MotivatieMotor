@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Waarde.unity
     guid: 709a02e8984209140999d84464dafdcf
   - enabled: 1
+    path: Assets/Scenes/Interne Druk.unity
+    guid: 4aeb5a81a729c3c449b2a9de67739cbd
+  - enabled: 1
+    path: Assets/Scenes/Nut.unity
+    guid: 4670fcf93b1ae4e4e8db7089d4ce7425
+  - enabled: 1
+    path: Assets/Scenes/Interesse.unity
+    guid: 73f1a10ab15da644d8cf5dc2879804e6
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: f3b40026166714f4590361f4fc573746
   m_configObjects: {}
