@@ -3701,7 +3701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question:
-    question: Wat doe je op thijs zijn uitspraak?
+    question: Wat doe je in deze situatie met Ken en Max?
     possibleAnswers:
     - answer: Zet het cijfer er niet op en geef de leerling een herkansing datum
       motType: 1
