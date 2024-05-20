@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
 
     public Animator animator;
+    private bool IsCoroutineRunning;
+    private Sentence currentSentence;
 
     // Start is called before the first frame update
     void Start()
@@ -37,23 +40,31 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence() {
+        if(IsCoroutineRunning) {
+            StopAllCoroutines();
+            IsCoroutineRunning = false;
+            dialogueText.text = currentSentence.sentence;
+            return;
+        }
         if (sentences.Count == 0) {
             EndDialogue();
             return;
         }
 
-        Sentence sentence = sentences.Dequeue();
+        currentSentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(currentSentence));
     }
 
     IEnumerator TypeSentence(Sentence sentence) {
+        IsCoroutineRunning = true;
         dialogueText.text = "";
         nameText.text = sentence.name;
         foreach(char letter in sentence.sentence.ToCharArray()) {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
+        IsCoroutineRunning = false;
     }
 
     void EndDialogue() {

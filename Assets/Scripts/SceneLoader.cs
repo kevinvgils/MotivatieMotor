@@ -11,4 +11,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneToLoad);
     }
+
+    public void LoadReflectionScene(string reflectionLevelName)
+    {
+        PlayerPrefs.SetString("levelName", reflectionLevelName);
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }
