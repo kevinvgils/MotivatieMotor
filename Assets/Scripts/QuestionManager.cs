@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,23 @@ public class QuestionManager : MonoBehaviour
     public Image coinImage;
     public Sprite[] coinImages;
     public Slider timerSlider; // Reference to the Slider component for the timer bar
+    public Gradient timerGradient;
+    public Image timerImage;
     public Button[] answerButtons;
     private Question currentQuestion;
     public float timeLimit = 30f;  // Set your desired time limit here
     private Coroutine timerCoroutine;
     private int nextStudent;
     public Animator animator;
+    public void Start() {
+        timerSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        OnSliderValueChanged(timerSlider.value);
+    }
+
+    private void OnSliderValueChanged(float value)
+    {
+        timerImage.color = timerGradient.Evaluate(value / timerSlider.maxValue);
+    }
 
     public void StartQuestion(Question question, int nextStudentI) {
         nextStudent = nextStudentI;
@@ -96,7 +108,7 @@ public class QuestionManager : MonoBehaviour
             timeRemaining -= 1f;
 
             // Update the timer text if needed
-            timerText.text = "Time remaining: " + timeRemaining.ToString("F0");
+            timerText.text = "Tijd om te antwoorden: " + timeRemaining.ToString("F0");
 
             // Update the slider value
             timerSlider.value = timeRemaining;
