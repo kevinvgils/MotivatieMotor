@@ -3901,7 +3901,7 @@ MonoBehaviour:
   - {fileID: 552190064}
   - {fileID: 552190063}
   - {fileID: 552190066}
-  timeLimit: 30
+  timeLimit: 60
   animator: {fileID: 888845268}
 --- !u!4 &2027458458
 Transform:
