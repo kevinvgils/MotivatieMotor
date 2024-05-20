@@ -6,9 +6,10 @@ public class StudentHandRaiseHandler : MonoBehaviour
 {
     public List<Button> studentButtons;
     private Button raisedHandButton;
+    public int startStudent;
 
     public void Start() {
-        RaiseHand(0);
+        RaiseHand(startStudent);
     }
 
     public void OnStudentButtonClick(DialogueTrigger dialogueTrigger)
