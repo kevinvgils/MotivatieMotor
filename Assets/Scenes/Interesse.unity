@@ -4371,8 +4371,12 @@ PrefabInstance:
       value: QuestionBox
       objectReference: {fileID: 0}
     - target: {fileID: 3886692642515638175, guid: 31fff41c720df7048a9146815658b1f4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 491.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886692642515638175, guid: 31fff41c720df7048a9146815658b1f4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0000076293945
+      value: 0.00098419
       objectReference: {fileID: 0}
     - target: {fileID: 3886692642515638175, guid: 31fff41c720df7048a9146815658b1f4, type: 3}
       propertyPath: m_AnchoredPosition.y
