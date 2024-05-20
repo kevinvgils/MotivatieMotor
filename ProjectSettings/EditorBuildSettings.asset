@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 63c16c8b5aa085442a7926d8b3d09741
   - enabled: 1
-    path: Assets/Scenes/PrototypeScene.unity
+    path: Assets/Scenes/Externe Druk.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/ReflectOnLevel.unity
     guid: 67edd6dde628a7440b2051e019a5f0b1
+  - enabled: 1
+    path: Assets/Scenes/Waarde.unity
+    guid: 709a02e8984209140999d84464dafdcf
+  - enabled: 0
+    path: Assets/Scenes/PrototypeScene.unity
+    guid: 6a605bd123f186f4e9db386ddf415383
   m_configObjects: {}
