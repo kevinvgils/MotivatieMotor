@@ -39,17 +39,28 @@ public class StudentHandRaiseHandler : MonoBehaviour
         }
     }
 
-    void SetHandImageActive(Button button, bool isActive)
+void SetHandImageActive(Button button, bool isActive)
+{
+    // Assuming the hand image is a child with the name "HandImage"
+    Debug.Log(button);
+    Transform[] children = button.GetComponentsInChildren<Transform>(true);
+    Debug.Log(children.Length);
+    
+    foreach (Transform child in children)
     {
-        // Assuming the hand image is a child with the name "HandImage"
-        Image[] images = button.GetComponentsInChildren<Image>(true);
-        foreach (Image image in images)
+        Debug.Log(child);
+        // Check if the child is named "HandImage"
+        if (child.gameObject.name == "Hand")
         {
-            if (image.gameObject.name == "Hand")
-            {
-                image.gameObject.SetActive(isActive);
-                break;
-            }
+            child.gameObject.SetActive(isActive);
+            break;
         }
     }
+
+    // Apply the isActive state to all children of the button
+    foreach (Transform child in button.transform)
+    {
+        child.gameObject.SetActive(isActive);
+    }
+}
 }
